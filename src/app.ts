@@ -5,9 +5,14 @@ import chalk from 'chalk';
 import dotenv from 'dotenv';
 dotenv.config();
 
+import router from './routers/index.js';
+import errorHandler from './middlewares/errorHandlerMiddleware.js';
+
 const app = express();
 app.use(cors());
 app.use(json());
+app.use(router);
+app.use(errorHandler);
 
 app.get('/', (req, res) => {
 	res.json({ message: 'Hello World' });

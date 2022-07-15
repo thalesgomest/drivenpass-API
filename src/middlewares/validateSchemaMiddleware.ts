@@ -1,0 +1,23 @@
+import { Request, Response, NextFunction } from 'express';
+import { Schema } from 'joi';
+
+import AppError from '../config/error.js';
+
+function validadeSchemaMiddleware(schema: Schema, endpoint: string) {
+	return (req: Request, res: Response, next: NextFunction) => {
+		const { error } = schema.validate(req, { abortEarly: false });
+
+		if (error) {
+			throw new AppError(
+				'Invalid Input',
+				422,
+				'Invalid Input',
+				error.details.map((detail) => detail.message).join(', ')
+			);
+		}
+		res.locals.req = req;
+		next();
+	};
+}
+
+export default validadeSchemaMiddleware;
