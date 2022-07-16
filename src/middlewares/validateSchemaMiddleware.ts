@@ -15,7 +15,6 @@ function validadeSchemaMiddleware(schema: Schema) {
 				error.details.map((detail) => detail.message).join(', ')
 			);
 		}
-		res.locals.req = req;
 		next();
 	};
 }
