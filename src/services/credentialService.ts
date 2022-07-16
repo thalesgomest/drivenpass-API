@@ -74,3 +74,7 @@ export const getCredentialById = async (
 	}
 	return credential;
 };
+
+export const deleteCredential = async (credentialId: number) => {
+	await credentialRepository.deleteById(credentialId);
+};

@@ -23,3 +23,7 @@ export const getAll = async (userId: number) => {
 export const getById = async (credentialId: number) => {
 	return prisma.credential.findUnique({ where: { id: credentialId } });
 };
+
+export const deleteById = async (credentialId: number) => {
+	return prisma.credential.delete({ where: { id: credentialId } });
+};
