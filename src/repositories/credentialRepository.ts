@@ -19,3 +19,7 @@ export const create = async (CredentialData: CredentialData) => {
 export const getAll = async (userId: number) => {
 	return prisma.credential.findMany({ where: { userId } });
 };
+
+export const getById = async (credentialId: number) => {
+	return prisma.credential.findUnique({ where: { id: credentialId } });
+};

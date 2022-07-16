@@ -50,3 +50,27 @@ export const getAllCredentials = async (userId: number) => {
 	}
 	return credentials;
 };
+
+export const getCredentialById = async (
+	userId: number,
+	credentialId: number
+) => {
+	const credential = await credentialRepository.getById(credentialId);
+	if (!credential) {
+		throw new AppError(
+			'Credential not found',
+			404,
+			'Credential not found',
+			'Ensure that the credential exists'
+		);
+	}
+	if (credential.userId !== userId) {
+		throw new AppError(
+			'Unauthorized acess credential',
+			401,
+			'Unauthorized acess credential',
+			'Ensure that the credential belongs to the user'
+		);
+	}
+	return credential;
+};

@@ -3,6 +3,7 @@ import validadeSchemaMiddleware from '../middlewares/validateSchemaMiddleware.js
 import validateBearerTokenMiddleware from '../middlewares/validateBearerTokenMiddleware.js';
 import createCredentialSchema from '../schemas/credentialSchemas/createCredentialSchema.js';
 import getAllCredentialsSchema from '../schemas/credentialSchemas/getAllCredentialsSchema.js';
+import getCredentialByIdSchema from '../schemas/credentialSchemas/getCredentialByIdSchema.js';
 import * as credentialController from '../controllers/credentialController.js';
 
 const credentialsRouter = Router();
@@ -18,7 +19,11 @@ credentialsRouter.get(
 	validadeSchemaMiddleware(getAllCredentialsSchema),
 	credentialController.getAllCredentials
 );
-credentialsRouter.get(':userId/:credentialId');
+credentialsRouter.get(
+	'/:userId/:credentialId',
+	validadeSchemaMiddleware(getCredentialByIdSchema),
+	credentialController.getCredentialById
+);
 credentialsRouter.delete('/:credentialId');
 
 export default credentialsRouter;
