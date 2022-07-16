@@ -3,7 +3,7 @@ import { Schema } from 'joi';
 
 import AppError from '../config/error.js';
 
-function validadeSchemaMiddleware(schema: Schema, endpoint: string) {
+function validadeSchemaMiddleware(schema: Schema) {
 	return (req: Request, res: Response, next: NextFunction) => {
 		const { error } = schema.validate(req, { abortEarly: false });
 
