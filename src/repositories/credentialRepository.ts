@@ -4,7 +4,10 @@ import prisma from '../config/database.js';
 export const getByTitle = async (title: string, userId: number) => {
 	return prisma.credential.findFirst({
 		where: {
-			title,
+			title: {
+				equals: title,
+				mode: 'insensitive',
+			},
 			userId,
 		},
 	});
