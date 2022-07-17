@@ -18,3 +18,15 @@ export const create = async (cardData: CardData) => {
 		data: cardData,
 	});
 };
+
+export const getAll = async (userId: number) => {
+	return await prisma.card.findMany({ where: { userId } });
+};
+
+export const getById = async (cardId: number) => {
+	return await prisma.card.findUnique({ where: { id: cardId } });
+};
+
+export const deleteById = async (cardId: number) => {
+	return prisma.card.delete({ where: { id: cardId } });
+};
