@@ -2,6 +2,8 @@ import * as wifiRepository from '../repositories/wifiRepository.js';
 import * as userRepository from '../repositories/userRepository.js';
 import { WifiData } from '../interfaces/wifisInterface.js';
 
+import { cryptrEncryptData, cryptrDecryptData } from '../utils/cryptr.js';
+
 import AppError from '../config/error.js';
 
 export const userIdExist = async (userId: number) => {
@@ -17,5 +19,51 @@ export const userIdExist = async (userId: number) => {
 };
 
 export const createWifi = async (wifiData: WifiData) => {
-	await wifiRepository.create(wifiData);
+	const { password } = wifiData;
+	const encryptedPassword = cryptrEncryptData(password);
+	await wifiRepository.create({
+		...wifiData,
+		password: encryptedPassword,
+	});
+};
+
+export const getAllWifis = async (userId: number) => {
+	const wifis = await wifiRepository.getAll(userId);
+	if (!wifis) {
+		throw new AppError(
+			'No Wifis found',
+			404,
+			'No Wifis found',
+			'Ensure that the user has Wifis'
+		);
+	}
+	const wifisWithDecryptedPassword = wifis.map((wifi) => {
+		const { password } = wifi;
+		const decryptedPassword = cryptrDecryptData(password);
+		return { ...wifi, password: decryptedPassword };
+	});
+	return wifisWithDecryptedPassword;
+};
+
+export const getWifiById = async (userId: number, wifiId: number) => {
+	const wifi = await wifiRepository.getById(wifiId);
+	if (!wifi) {
+		throw new AppError(
+			'Wifi not found',
+			404,
+			'Wifi not found',
+			'Ensure that the Wifi exists'
+		);
+	}
+	if (wifi.userId !== userId) {
+		throw new AppError(
+			'Unauthorized acess Wifi',
+			401,
+			'Unauthorized acess Wifi',
+			'Ensure that the Wifi belongs to the user'
+		);
+	}
+	const { password } = wifi;
+	const decryptedPassword = cryptrDecryptData(password);
+	return { ...wifi, password: decryptedPassword };
 };

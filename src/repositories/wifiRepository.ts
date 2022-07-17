@@ -18,3 +18,11 @@ export const create = async (wifiData: WifiData) => {
 		data: wifiData,
 	});
 };
+
+export const getAll = async (userId: number) => {
+	return prisma.wifi.findMany({ where: { userId } });
+};
+
+export const getById = async (wifiId: number) => {
+	return prisma.wifi.findUnique({ where: { id: wifiId } });
+};

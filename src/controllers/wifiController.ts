@@ -10,3 +10,18 @@ export const createWifi = async (req: Request, res: Response) => {
 	await wifiService.createWifi(wifiData);
 	res.status(201).json({ message: 'wifi created' });
 };
+
+export const getAllWifis = async (req: Request, res: Response) => {
+	const userId = Number(req.params.userId);
+	await wifiService.userIdExist(userId);
+	const wifis = await wifiService.getAllWifis(userId);
+	res.status(200).json({ wifis });
+};
+
+export const getWifisById = async (req: Request, res: Response) => {
+	const userId = Number(req.params.userId);
+	const wifiId = Number(req.params.wifiId);
+	await wifiService.userIdExist(userId);
+	const wifi = await wifiService.getWifiById(userId, wifiId);
+	res.status(200).json({ wifi });
+};

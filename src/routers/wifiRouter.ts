@@ -2,6 +2,8 @@ import { Router } from 'express';
 import validadeSchemaMiddleware from '../middlewares/validateSchemaMiddleware.js';
 import validateBearerTokenMiddleware from '../middlewares/validateBearerTokenMiddleware.js';
 import createWifiSchema from '../schemas/wifiSchemas/createWifiSchema.js';
+import getAllWifisSchema from '../schemas/wifiSchemas/getAllWifisSchema.js';
+import getWifiByIdSchema from '../schemas/wifiSchemas/getWifiByIdSchema.js';
 import * as wifiController from '../controllers/wifiController.js';
 
 const wifisRouter = Router();
@@ -12,22 +14,22 @@ wifisRouter.post(
 	validadeSchemaMiddleware(createWifiSchema),
 	wifiController.createWifi
 );
-/* 
+
 wifisRouter.get(
 	'/:userId',
 	validadeSchemaMiddleware(getAllWifisSchema),
-	wifiController.getAllwifis
+	wifiController.getAllWifis
 );
 wifisRouter.get(
 	'/:userId/:wifiId',
 	validadeSchemaMiddleware(getWifiByIdSchema),
-	wifiController.getwifisById
+	wifiController.getWifisById
 );
 
-wifisRouter.delete(
+/* wifisRouter.delete(
 	'/:userId/:wifiId',
 	validadeSchemaMiddleware(deleteWifiSchema),
 	wifiController.deletewifi
-); */
-
+);
+ */
 export default wifisRouter;
