@@ -4,6 +4,7 @@ import validateBearerTokenMiddleware from '../middlewares/validateBearerTokenMid
 import createWifiSchema from '../schemas/wifiSchemas/createWifiSchema.js';
 import getAllWifisSchema from '../schemas/wifiSchemas/getAllWifisSchema.js';
 import getWifiByIdSchema from '../schemas/wifiSchemas/getWifiByIdSchema.js';
+import deleteWifiSchema from '../schemas/wifiSchemas/deleteWifiSchema.js';
 import * as wifiController from '../controllers/wifiController.js';
 
 const wifisRouter = Router();
@@ -26,10 +27,10 @@ wifisRouter.get(
 	wifiController.getWifisById
 );
 
-/* wifisRouter.delete(
+wifisRouter.delete(
 	'/:userId/:wifiId',
 	validadeSchemaMiddleware(deleteWifiSchema),
-	wifiController.deletewifi
+	wifiController.deleteWifi
 );
- */
+
 export default wifisRouter;

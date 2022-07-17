@@ -25,3 +25,11 @@ export const getWifisById = async (req: Request, res: Response) => {
 	const wifi = await wifiService.getWifiById(userId, wifiId);
 	res.status(200).json({ wifi });
 };
+
+export const deleteWifi = async (req: Request, res: Response) => {
+	const userId = Number(req.params.userId);
+	const wifiId = Number(req.params.wifiId);
+	await wifiService.wifiEligibilityForDelete(userId, wifiId);
+	await wifiService.deleteWifi(wifiId);
+	res.status(200).json({ message: 'Wifi deleted' });
+};

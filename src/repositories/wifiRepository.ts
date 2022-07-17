@@ -26,3 +26,7 @@ export const getAll = async (userId: number) => {
 export const getById = async (wifiId: number) => {
 	return prisma.wifi.findUnique({ where: { id: wifiId } });
 };
+
+export const deleteById = async (wifiId: number) => {
+	return prisma.wifi.delete({ where: { id: wifiId } });
+};

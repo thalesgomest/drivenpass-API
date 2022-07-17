@@ -67,3 +67,30 @@ export const getWifiById = async (userId: number, wifiId: number) => {
 	const decryptedPassword = cryptrDecryptData(password);
 	return { ...wifi, password: decryptedPassword };
 };
+
+export const wifiEligibilityForDelete = async (
+	userId: number,
+	wifiId: number
+) => {
+	const wifi = await wifiRepository.getById(wifiId);
+	if (!wifi) {
+		throw new AppError(
+			'wifi not found',
+			404,
+			'wifi not found',
+			'Ensure that the wifi exists'
+		);
+	}
+	if (wifi.userId !== userId) {
+		throw new AppError(
+			'Unauthorized acess wifi',
+			401,
+			'Unauthorized acess wifi',
+			'Ensure that the wifi belongs to the user'
+		);
+	}
+};
+
+export const deleteWifi = async (wifiId: number) => {
+	await wifiRepository.deleteById(wifiId);
+};
