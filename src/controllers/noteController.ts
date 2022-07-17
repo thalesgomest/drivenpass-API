@@ -4,12 +4,12 @@ import * as noteService from '../services/noteService.js';
 
 export const createNote = async (req: Request, res: Response) => {
 	const userId = Number(req.params.userId);
-	const NoteBodyData: NoteBodyData = req.body;
-	const NoteData: NoteData = { ...NoteBodyData, userId };
-	const { title } = NoteData;
+	const noteBodyData: NoteBodyData = req.body;
+	const noteData: NoteData = { ...noteBodyData, userId };
+	const { title } = noteData;
 	await noteService.userIdExist(userId);
 	await noteService.noteTitleExist(title, userId);
-	await noteService.createNote(NoteData);
+	await noteService.createNote(noteData);
 	res.status(201).json({ message: 'Note created' });
 };
 

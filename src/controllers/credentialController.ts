@@ -7,12 +7,12 @@ import * as credentialService from '../services/credentialService.js';
 
 export const createCredential = async (req: Request, res: Response) => {
 	const userId = Number(req.params.userId);
-	const CredentialBodyData: CredentialBodyData = req.body;
-	const CredentialData: CredentialData = { ...CredentialBodyData, userId };
-	const { title } = CredentialData;
+	const credentialBodyData: CredentialBodyData = req.body;
+	const credentialData: CredentialData = { ...credentialBodyData, userId };
+	const { title } = credentialData;
 	await credentialService.userIdExist(userId);
 	await credentialService.credentialTitleExist(title, userId);
-	await credentialService.createCredential(CredentialData);
+	await credentialService.createCredential(credentialData);
 	res.status(201).json({ message: 'credential created' });
 };
 

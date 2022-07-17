@@ -2,7 +2,6 @@ import { UserData } from '../interfaces/authInterface';
 import prisma from '../config/database.js';
 
 export const insert = async (user: UserData) => {
-	console.log(user);
 	return prisma.user.create({
 		data: user,
 	});

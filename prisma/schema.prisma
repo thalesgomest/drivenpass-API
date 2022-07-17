@@ -57,6 +57,7 @@ model Card {
   cardholderName  String
   securityCode    String
   expirationDate  String
+  password        String
   isVirtual       Boolean
   type            CardType
   createdAt       DateTime @default(now())
@@ -70,7 +71,7 @@ model Card {
 enum CardType {
   credit
   debit
-  credit_debit
+  both
 }
 
 model Wifi {
