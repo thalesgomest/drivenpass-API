@@ -1,12 +1,12 @@
 import Joi from 'joi';
 
-const createCredentialParamsSchema = Joi.object({
+const deleteCredentialParamsSchema = Joi.object({
 	userId: Joi.number().positive().required(),
 	credentialId: Joi.number().positive().required(),
 });
 
-const getAllCredentialsSchema = Joi.object({
-	params: createCredentialParamsSchema,
+const deleteCredentialSchema = Joi.object({
+	params: deleteCredentialParamsSchema,
 }).options({ allowUnknown: true });
 
-export default getAllCredentialsSchema;
+export default deleteCredentialSchema;

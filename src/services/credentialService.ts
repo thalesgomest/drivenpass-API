@@ -82,6 +82,29 @@ export const getCredentialById = async (
 	return { ...credential, password: decryptedPassword };
 };
 
+export const credentialEligibilityForDelete = async (
+	userId: number,
+	credentialId: number
+) => {
+	const credential = await credentialRepository.getById(credentialId);
+	if (!credential) {
+		throw new AppError(
+			'Credential not found',
+			404,
+			'Credential not found',
+			'Ensure that the credential exists'
+		);
+	}
+	if (credential.userId !== userId) {
+		throw new AppError(
+			'Unauthorized acess credential',
+			401,
+			'Unauthorized acess credential',
+			'Ensure that the credential belongs to the user'
+		);
+	}
+};
+
 export const deleteCredential = async (credentialId: number) => {
 	await credentialRepository.deleteById(credentialId);
 };

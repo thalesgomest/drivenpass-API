@@ -65,3 +65,30 @@ export const getNoteById = async (userId: number, noteId: number) => {
 	}
 	return note;
 };
+
+export const noteEligibilityForDelete = async (
+	userId: number,
+	noteId: number
+) => {
+	const note = await noteRepository.getById(noteId);
+	if (!note) {
+		throw new AppError(
+			'Note not found',
+			404,
+			'Note not found',
+			'Ensure that the note exists'
+		);
+	}
+	if (note.userId !== userId) {
+		throw new AppError(
+			'Unauthorized acess note',
+			401,
+			'Unauthorized acess note',
+			'Ensure that the note belongs to the user'
+		);
+	}
+};
+
+export const deleteNote = async (noteId: number) => {
+	await noteRepository.deleteById(noteId);
+};

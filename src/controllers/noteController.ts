@@ -27,3 +27,11 @@ export const getNotesById = async (req: Request, res: Response) => {
 	const note = await noteService.getNoteById(userId, noteId);
 	res.status(200).json({ note });
 };
+
+export const deleteNote = async (req: Request, res: Response) => {
+	const userId = Number(req.params.userId);
+	const noteId = Number(req.params.noteId);
+	await noteService.noteEligibilityForDelete(userId, noteId);
+	await noteService.deleteNote(noteId);
+	res.status(200).json({ message: 'Note deleted' });
+};

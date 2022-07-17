@@ -26,3 +26,7 @@ export const getAll = async (userId: number) => {
 export const getById = async (noteId: number) => {
 	return prisma.note.findUnique({ where: { id: noteId } });
 };
+
+export const deleteById = async (noteId: number) => {
+	return prisma.note.delete({ where: { id: noteId } });
+};
