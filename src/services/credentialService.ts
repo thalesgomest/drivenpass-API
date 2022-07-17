@@ -1,7 +1,7 @@
 import * as credentialRepository from '../repositories/credentialRepository.js';
 import * as userRepository from '../repositories/userRepository.js';
 import { CredentialData } from '../interfaces/credentialsInterface.js';
-import { cryptrEncryptData } from '../utils/cryptr.js';
+import { cryptrEncryptData, cryptrDecryptData } from '../utils/cryptr.js';
 
 import AppError from '../config/error.js';
 
@@ -48,7 +48,12 @@ export const getAllCredentials = async (userId: number) => {
 			'Ensure that the user has credentials'
 		);
 	}
-	return credentials;
+	const credentialsWithDecryptedPassword = credentials.map((credential) => {
+		const { password } = credential;
+		const decryptedPassword = cryptrDecryptData(password);
+		return { ...credential, password: decryptedPassword };
+	});
+	return credentialsWithDecryptedPassword;
 };
 
 export const getCredentialById = async (
@@ -72,7 +77,9 @@ export const getCredentialById = async (
 			'Ensure that the credential belongs to the user'
 		);
 	}
-	return credential;
+	const { password } = credential;
+	const decryptedPassword = cryptrDecryptData(password);
+	return { ...credential, password: decryptedPassword };
 };
 
 export const deleteCredential = async (credentialId: number) => {
