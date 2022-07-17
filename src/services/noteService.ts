@@ -31,3 +31,37 @@ export const noteTitleExist = async (title: string, userId: number) => {
 export const createNote = async (NoteData: NoteData) => {
 	await noteRepository.create(NoteData);
 };
+
+export const getAllNotes = async (userId: number) => {
+	const notes = await noteRepository.getAll(userId);
+	if (!notes) {
+		throw new AppError(
+			'No notes found',
+			404,
+			'No notes found',
+			'Ensure that the user has notes'
+		);
+	}
+	return notes;
+};
+
+export const getNoteById = async (userId: number, noteId: number) => {
+	const note = await noteRepository.getById(noteId);
+	if (!note) {
+		throw new AppError(
+			'note not found',
+			404,
+			'note not found',
+			'Ensure that the note exists'
+		);
+	}
+	if (note.userId !== userId) {
+		throw new AppError(
+			'Unauthorized acess note',
+			401,
+			'Unauthorized acess note',
+			'Ensure that the note belongs to the user'
+		);
+	}
+	return note;
+};

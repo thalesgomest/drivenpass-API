@@ -1,11 +1,11 @@
 import Joi from 'joi';
 
-const createCredentialParamsSchema = Joi.object({
+const getAllCredentialsParamsSchema = Joi.object({
 	userId: Joi.number().positive().required(),
 });
 
 const getAllCredentialsSchema = Joi.object({
-	params: createCredentialParamsSchema,
+	params: getAllCredentialsParamsSchema,
 }).options({ allowUnknown: true });
 
 export default getAllCredentialsSchema;

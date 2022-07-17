@@ -18,3 +18,11 @@ export const create = async (NoteData: NoteData) => {
 		data: NoteData,
 	});
 };
+
+export const getAll = async (userId: number) => {
+	return prisma.note.findMany({ where: { userId } });
+};
+
+export const getById = async (noteId: number) => {
+	return prisma.note.findUnique({ where: { id: noteId } });
+};
