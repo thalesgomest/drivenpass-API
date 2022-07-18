@@ -113,7 +113,9 @@ POST /credentials/${userId}/create
 
 | Headers     | Type     | Description           |
 | :---------- | :------- | :-------------------- |
-| `Authentication Bearer Token` | `string` | **Required**. token |
+| `Authentication` | `string` | **Required**. token |
+
+`Authorization format: Bearer jsonwebtoken`
 
 ####
 
@@ -152,7 +154,9 @@ GET /credentials/${userId}
 
 | Headers     | Type     | Description           |
 | :---------- | :------- | :-------------------- |
-| `Authentication Bearer Token` | `string` | **Required**. token |
+| `Authentication` | `string` | **Required**. token |
+
+`Authorization format: Bearer jsonwebtoken`
 
 ####
 
@@ -193,7 +197,9 @@ GET /credentials/${userId}/${credentialId}
 
 | Headers     | Type     | Description           |
 | :---------- | :------- | :-------------------- |
-| `Authentication Bearer Token` | `string` | **Required**. token |
+| `Authentication` | `string` | **Required**. token |
+
+`Authorization format: Bearer jsonwebtoken`
 
 ####
 
@@ -233,7 +239,9 @@ DELETE /credentials/${userId}/${credentialId}
 
 | Headers     | Type     | Description           |
 | :---------- | :------- | :-------------------- |
-| `Authentication Bearer Token` | `string` | **Required**. token |
+| `Authentication` | `string` | **Required**. token |
+
+`Authorization format: Bearer jsonwebtoken`
 
 ####
 
@@ -265,7 +273,9 @@ POST /notes/${userId}/create
 
 | Headers     | Type     | Description           |
 | :---------- | :------- | :-------------------- |
-| `Authentication Bearer Token` | `string` | **Required**. token |
+| `Authentication` | `string` | **Required**. token |
+
+`Authorization format: Bearer jsonwebtoken`
 
 ####
 
@@ -302,7 +312,9 @@ GET /notes/${userId}
 
 | Headers     | Type     | Description           |
 | :---------- | :------- | :-------------------- |
-| `Authentication Bearer Token` | `string` | **Required**. token |
+| `Authentication` | `string` | **Required**. token |
+
+`Authorization format: Bearer jsonwebtoken`
 
 ####
 
@@ -341,7 +353,9 @@ GET /notes/${userId}/${noteId}
 
 | Headers     | Type     | Description           |
 | :---------- | :------- | :-------------------- |
-| `Authentication Bearer Token` | `string` | **Required**. token |
+| `Authentication` | `string` | **Required**. token |
+
+`Authorization format: Bearer jsonwebtoken`
 
 ####
 
@@ -378,7 +392,9 @@ DELETE /notes/${userId}/${notesId}
 
 | Headers     | Type     | Description           |
 | :---------- | :------- | :-------------------- |
-| `Authentication Bearer Token` | `string` | **Required**. token |
+| `Authentication` | `string` | **Required**. token |
+
+`Authorization format: Bearer jsonwebtoken`
 
 ####
 
@@ -410,7 +426,9 @@ POST /cards/${userId}/create
 
 | Headers     | Type     | Description           |
 | :---------- | :------- | :-------------------- |
-| `Authentication Bearer Token` | `string` | **Required**. token |
+| `Authentication` | `string` | **Required**. token |
+
+`Authorization format: Bearer jsonwebtoken`
 
 ####
 
@@ -461,7 +479,9 @@ GET /cards/${userId}
 
 | Headers     | Type     | Description           |
 | :---------- | :------- | :-------------------- |
-| `Authentication Bearer Token` | `string` | **Required**. token |
+| `Authentication` | `string` | **Required**. token |
+
+`Authorization format: Bearer jsonwebtoken`
 
 ####
 
@@ -506,7 +526,9 @@ GET /cards/${userId}/${cardId}
 
 | Headers     | Type     | Description           |
 | :---------- | :------- | :-------------------- |
-| `Authentication Bearer Token` | `string` | **Required**. token |
+| `Authentication` | `string` | **Required**. token |
+
+`Authorization format: Bearer jsonwebtoken`
 
 ####
 
@@ -549,7 +571,9 @@ DELETE /cards/${userId}/${cardId}
 
 | Headers     | Type     | Description           |
 | :---------- | :------- | :-------------------- |
-| `Authentication Bearer Token` | `string` | **Required**. token |
+| `Authentication` | `string` | **Required**. token |
+
+`Authorization format: Bearer jsonwebtoken`
 
 ####
 
@@ -581,7 +605,9 @@ POST /wifis/${userId}/create
 
 | Headers     | Type     | Description           |
 | :---------- | :------- | :-------------------- |
-| `Authentication Bearer Token` | `string` | **Required**. token |
+| `Authentication` | `string` | **Required**. token |
+
+`Authorization format: Bearer jsonwebtoken`
 
 ####
 
@@ -617,7 +643,9 @@ GET /wifis/${userId}
 
 | Headers     | Type     | Description           |
 | :---------- | :------- | :-------------------- |
-| `Authentication Bearer Token` | `string` | **Required**. token |
+| `Authentication` | `string` | **Required**. token |
+
+`Authorization format: Bearer jsonwebtoken`
 
 ####
 
@@ -657,7 +685,9 @@ GET /wifis/${userId}/${wifiId}
 
 | Headers     | Type     | Description           |
 | :---------- | :------- | :-------------------- |
-| `Authentication Bearer Token` | `string` | **Required**. token |
+| `Authentication` | `string` | **Required**. token |
+
+`Authorization format: Bearer jsonwebtoken`
 
 ####
 
@@ -695,7 +725,9 @@ DELETE /wifis/${userId}/${wifiId}
 
 | Headers     | Type     | Description           |
 | :---------- | :------- | :-------------------- |
-| `Authentication Bearer Token` | `string` | **Required**. token |
+| `Authentication` | `string` | **Required**. token |
+
+`Authorization format: Bearer jsonwebtoken`
 
 ####
 
