@@ -124,7 +124,7 @@ POST /credentials/${userId}/create
 | `password` | `string` | **Required**. credential password |
 | `title` | `string` | **Required**. credential password |
 
-</br>
+#
 
 #### Response:
 
@@ -275,8 +275,6 @@ POST /notes/${userId}/create
 | `content`         | `string` | **Required**. note content          |
 
 `title length min(50) and max(1000)`
-
-</br>
 
 #### Response:
 
@@ -437,9 +435,6 @@ POST /cards/${userId}/create
 
 `Valid types: [credit, debit, both]`
 
-
-</br>
-
 #### Response:
 
 ```json
@@ -596,9 +591,6 @@ POST /wifis/${userId}/create
 | `name`         | `string` | **Required**. wifi name          |
 | `password`         | `string` | **Required**. wifi password          |
 
-
-</br>
-
 #### Response:
 
 ```json
@@ -692,7 +684,6 @@ GET /wifis/${userId}/${wifiId}
 DELETE /wifis/${userId}/${wifiId}
 ```
 
-
 #### Request:
 
 | Params      | Type      | Description           |
@@ -717,7 +708,6 @@ DELETE /wifis/${userId}/${wifiId}
 ```
 
 #
-
 
 ## Environment Variables
 
