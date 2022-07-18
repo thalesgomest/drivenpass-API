@@ -160,7 +160,7 @@ GET /credentials/${userId}
 
 ```json
 {
-		"credentials": [
+	"credentials": [
 		{
 			"id": 3,
 			"url": "http://ultimate-certification.name",
@@ -310,7 +310,7 @@ GET /notes/${userId}
 
 ```json
 {
-		"notes": [
+	"notes": [
 		{
 			"id": 1,
 			"title": "consequatur",
@@ -469,7 +469,7 @@ GET /cards/${userId}
 
 ```json
 {
-		"cards": [
+	"cards": [
 		{
 			"id": 2,
 			"title": "vel qui expedita",
