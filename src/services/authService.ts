@@ -13,7 +13,7 @@ export const signUp = async (UserData: UserData) => {
 	if (user) {
 		throw new AppError(
 			'user already registered with this email',
-			400,
+			409,
 			'user already registered with this email',
 			'Ensure that the email is unique'
 		);
@@ -37,7 +37,7 @@ export const signIn = async (signInData: SignInData) => {
 	if (!passwordIsValid) {
 		throw new AppError(
 			'Invalid email or password',
-			404,
+			401,
 			'Invalid email or password',
 			'Ensure that the data is correct'
 		);
