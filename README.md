@@ -91,7 +91,7 @@ POST /auth/signin
 
 ```json
 {
-	"token": "random token JWT generate",
+	"token": "jasonwebtoken (JWT)",
 }
 ```
 
