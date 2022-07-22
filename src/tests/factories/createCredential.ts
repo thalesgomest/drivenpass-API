@@ -1,7 +1,6 @@
 import prisma from '../../config/database.js';
-import app from '../../app.js';
-import supertest from 'supertest';
 import { faker } from '@faker-js/faker';
+import { cryptrEncryptData } from '../../utils/cryptr.js';
 
 import createUser from './createUser';
 
@@ -14,10 +13,14 @@ const credentialBody = {
 
 const createCredential = async () => {
 	const { token, userId } = await createUser();
-	await supertest(app)
-		.post(`/credentials/${userId}/create`)
-		.set('Authorization', `Bearer ${token}`)
-		.send(credentialBody);
+
+	await prisma.credential.create({
+		data: {
+			...credentialBody,
+			userId,
+			password: cryptrEncryptData(credentialBody.password),
+		},
+	});
 	const credentialCreated = await prisma.credential.findFirst({
 		where: { title: credentialBody.title, userId },
 	});

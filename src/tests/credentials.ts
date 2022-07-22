@@ -39,7 +39,6 @@ export const credentialsTest = () => {
 			const credentialsByUserId = await supertest(app)
 				.get(`/credentials/${userId}`)
 				.set('Authorization', `Bearer ${token}`);
-			console.log(credentialsByUserId.body);
 			const status = credentialsByUserId.status;
 			expect(status).toEqual(200);
 		});

@@ -2,6 +2,7 @@ import prisma from '../../config/database.js';
 import app from '../../app.js';
 import supertest from 'supertest';
 import { faker } from '@faker-js/faker';
+import { bcryptEncryptData } from '../../utils/bcrypt.js';
 
 const name = faker.name.findName();
 const password = faker.internet.password();
@@ -11,7 +12,6 @@ const userBody = {
 	name,
 	email: `${firstName}@gmail.com`,
 	password,
-	confirmPassword: password,
 };
 
 const signInBody = {
@@ -20,7 +20,9 @@ const signInBody = {
 };
 
 const createUser = async () => {
-	await supertest(app).post('/auth/signup').send(userBody);
+	await prisma.user.create({
+		data: { ...userBody, password: await bcryptEncryptData(password) },
+	});
 
 	const userCreated = await prisma.user.findUnique({
 		where: { email: userBody.email },
