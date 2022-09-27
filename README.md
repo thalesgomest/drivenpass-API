@@ -1,25 +1,18 @@
-<p align="center">
-  <img  width=300px src="https://user-images.githubusercontent.com/97575616/179577739-c479c3da-e41d-444f-9b35-6d19ee08db20.png"
-</p>
-<h1 align="center">
-  DrivenPass
-</h1>
-<div align="center">
+  <img  width=100% src="https://user-images.githubusercontent.com/97575616/192423302-9f178758-4ced-4b31-870f-6d04d0bed5c8.png">
 
-  <h3>Built With</h3>
+## 📑 Contents
 
-  <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" height="30px"/>
-  <img src="https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white" height="30px"/>
-  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" height="30px"/>
-  <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" height="30px"/>  
-  <img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge&logo=express.js&logoColor=white" height="30px"/>
-  <img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white" height="30px"/>
-  <!-- Badges source: https://dev.to/envoy_/150-badges-for-github-pnk -->
-</div>
+-   [Project Description](#-project-description)
+-   [Status of work](#-status-of-work)
+-   [Features](#✅-features)
+-   [API Documentation](#📮-api-documentation)
+-   [Enviroment Variables](#🔑-environment-variables)
+-   [How to run](#%EF%B8%8F-how-to-run)
+-   [Build with](#%EF%B8%8F-build-with)
+-   [Contact](#-contact)
 
-<br/>
+## 📌 Project Description
 
-# Description
 <p align="justify">
 Browsing the internet can be a very fun activity, but at the same time, very dangerous. Numerous studies and surveys (national and international) show that the number of virtual scams continues to grow. Which raises the question: how to protect ourselves?
 There are several different ways to protect yourself. It all starts with using different and secure passwords. For a password to be security, it must contain several characters and numbers mixed in, not to mention that the longer it ii, etc.
@@ -28,21 +21,23 @@ we only create one “master” password and all other passwords kept secret! So
 
 </p>
 
-</br>
+## 🚧 Status of work
 
-## Features
+![status](https://img.shields.io/badge/Status-Finished-00920F?style=plastic)<br>
 
--   Sign In and Sign Up account
--   Create/Get/Delete Credentials
--   Create/Get/Delete Notes
--   Create/Get/Delete Networks
--   Create/Get/Delete Bank Cards                                                                                    
+<!-- ![status](https://img.shields.io/badge/Status-Progress-FFE70C?style=plastic) -->
 
-</br>
+## ✅ Features
 
-## API Reference
+-   [x] Sign In and Sign Up account
+-   [x] Create/Get/Delete Credentials
+-   [x] Create/Get/Delete Notes
+-   [x] Create/Get/Delete Networks
+-   [x] Create/Get/Delete Bank Cards
 
-### AUTHENTICATION
+## 📮 API Documentation
+
+### 🔐Authentication
 
 ### Sign Up
 
@@ -52,13 +47,12 @@ POST /auth/signup
 
 #### Request:
 
-| Body             | Type     | Description                        |
-| :--------------- | :------- | :--------------------------------- |
-| `name`           | `string` | **Required**. user name       |
-| `email`         | `string` | **Required**. user email          |
-| `password` | `string` | **Required**. user password |
-| `confirmPassword` | `string` | **Required**. user password |
-
+| Body              | Type     | Description                  |
+| :---------------- | :------- | :--------------------------- |
+| `name`            | `string` | **Required** → user name     |
+| `email`           | `string` | **Required** → user email    |
+| `password`        | `string` | **Required** → user password |
+| `confirmPassword` | `string` | **Required** → user password |
 
 `Password length min(10)`
 
@@ -68,7 +62,7 @@ POST /auth/signup
 
 ```json
 {
-	"message": "user created"
+    "message": "user created"
 }
 ```
 
@@ -80,10 +74,10 @@ POST /auth/signin
 
 #### Request:
 
-| Body             | Type     | Description                        |
-| :--------------- | :------- | :--------------------------------- |
-| `name`           | `string` | **Required**. user name       |
-| `email`         | `string` | **Required**. user email          |
+| Body    | Type     | Description               |
+| :------ | :------- | :------------------------ |
+| `name`  | `string` | **Required** → user name  |
+| `email` | `string` | **Required** → user email |
 
 #
 
@@ -91,11 +85,11 @@ POST /auth/signin
 
 ```json
 {
-	"token": "jasonwebtoken (JWT)",
+    "token": "jasonwebtoken (JWT)"
 }
 ```
 
-### CREDENTIALS
+### 👤 Credentials
 
 ### Create a credential
 
@@ -105,26 +99,26 @@ POST /credentials/${userId}/create
 
 #### Request:
 
-| Params      | Type      | Description           |
-| :---------- | :-------- | :-------------------- |
-| `userId` | `integer` | **Required**. user Id |
+| Params   | Type      | Description            |
+| :------- | :-------- | :--------------------- |
+| `userId` | `integer` | **Required** → user Id |
 
 ####
 
-| Headers     | Type     | Description           |
-| :---------- | :------- | :-------------------- |
-| `Authentication` | `string` | **Required**. token |
+| Headers          | Type     | Description          |
+| :--------------- | :------- | :------------------- |
+| `Authentication` | `string` | **Required** → token |
 
 `Authorization format: Bearer jsonwebtoken`
 
 ####
 
-| Body   | Type       | Description             |
-| :----- | :--------- | :---------------------- |
-| `url`           | `string` | **Required**. credential url      |
-| `username`         | `string` | **Required**. user name          |
-| `password` | `string` | **Required**. credential password |
-| `title` | `string` | **Required**. credential password |
+| Body       | Type     | Description                        |
+| :--------- | :------- | :--------------------------------- |
+| `url`      | `string` | **Required** → credential url      |
+| `username` | `string` | **Required** → user name           |
+| `password` | `string` | **Required** → credential password |
+| `title`    | `string` | **Required** → credential password |
 
 #
 
@@ -132,7 +126,7 @@ POST /credentials/${userId}/create
 
 ```json
 {
-	"message": "credential created"
+    "message": "credential created"
 }
 ```
 
@@ -146,15 +140,15 @@ GET /credentials/${userId}
 
 #### Request:
 
-| Params      | Type      | Description           |
-| :---------- | :-------- | :-------------------- |
-| `userId` | `integer` | **Required**. user Id |
+| Params   | Type      | Description            |
+| :------- | :-------- | :--------------------- |
+| `userId` | `integer` | **Required** → user Id |
 
 ####
 
-| Headers     | Type     | Description           |
-| :---------- | :------- | :-------------------- |
-| `Authentication` | `string` | **Required**. token |
+| Headers          | Type     | Description          |
+| :--------------- | :------- | :------------------- |
+| `Authentication` | `string` | **Required** → token |
 
 `Authorization format: Bearer jsonwebtoken`
 
@@ -164,17 +158,17 @@ GET /credentials/${userId}
 
 ```json
 {
-	"credentials": [
-		{
-			"id": 3,
-			"url": "http://ultimate-certification.name",
-			"username": "LorenzoFranco_Batista",
-			"password": "v7GcM",
-			"title": "Unifei",
-			"createdAt": "2022-07-18T19:46:40.846Z",
-			"userId": 2
-		}
-	]
+    "credentials": [
+        {
+            "id": 3,
+            "url": "http://ultimate-certification.name",
+            "username": "LorenzoFranco_Batista",
+            "password": "v7GcM",
+            "title": "Unifei",
+            "createdAt": "2022-07-18T19:46:40.846Z",
+            "userId": 2
+        }
+    ]
 }
 ```
 
@@ -188,16 +182,16 @@ GET /credentials/${userId}/${credentialId}
 
 #### Request:
 
-| Params      | Type      | Description           |
-| :---------- | :-------- | :-------------------- |
-| `userId` | `integer` | **Required**. user Id |
-| `credentialId` | `integer` | **Required**. credential Id |
+| Params         | Type      | Description                  |
+| :------------- | :-------- | :--------------------------- |
+| `userId`       | `integer` | **Required** → user Id       |
+| `credentialId` | `integer` | **Required** → credential Id |
 
 ####
 
-| Headers     | Type     | Description           |
-| :---------- | :------- | :-------------------- |
-| `Authentication` | `string` | **Required**. token |
+| Headers          | Type     | Description          |
+| :--------------- | :------- | :------------------- |
+| `Authentication` | `string` | **Required** → token |
 
 `Authorization format: Bearer jsonwebtoken`
 
@@ -207,17 +201,17 @@ GET /credentials/${userId}/${credentialId}
 
 ```json
 {
-	"credential": [
-		{
-			"id": 3,
-			"url": "http://ultimate-certification.name",
-			"username": "LorenzoFranco_Batista",
-			"password": "v7GcM",
-			"title": "Unifei",
-			"createdAt": "2022-07-18T19:46:40.846Z",
-			"userId": 2
-		}
-	]
+    "credential": [
+        {
+            "id": 3,
+            "url": "http://ultimate-certification.name",
+            "username": "LorenzoFranco_Batista",
+            "password": "v7GcM",
+            "title": "Unifei",
+            "createdAt": "2022-07-18T19:46:40.846Z",
+            "userId": 2
+        }
+    ]
 }
 ```
 
@@ -228,18 +222,19 @@ GET /credentials/${userId}/${credentialId}
 ```http
 DELETE /credentials/${userId}/${credentialId}
 ```
+
 #### Request:
 
-| Params      | Type      | Description           |
-| :---------- | :-------- | :-------------------- |
-| `userId` | `integer` | **Required**. user Id |
-| `credentialId` | `integer` | **Required**. credential Id |
+| Params         | Type      | Description                  |
+| :------------- | :-------- | :--------------------------- |
+| `userId`       | `integer` | **Required** → user Id       |
+| `credentialId` | `integer` | **Required** → credential Id |
 
 ####
 
-| Headers     | Type     | Description           |
-| :---------- | :------- | :-------------------- |
-| `Authentication` | `string` | **Required**. token |
+| Headers          | Type     | Description          |
+| :--------------- | :------- | :------------------- |
+| `Authentication` | `string` | **Required** → token |
 
 `Authorization format: Bearer jsonwebtoken`
 
@@ -249,13 +244,13 @@ DELETE /credentials/${userId}/${credentialId}
 
 ```json
 {
-	"message": "credential deleted"
+    "message": "credential deleted"
 }
 ```
 
 #
 
-### SECRETE NOTES
+### 📝 Secrete Notes
 
 ### Create a note
 
@@ -265,24 +260,24 @@ POST /notes/${userId}/create
 
 #### Request:
 
-| Params      | Type      | Description           |
-| :---------- | :-------- | :-------------------- |
-| `userId` | `integer` | **Required**. user Id |
+| Params   | Type      | Description            |
+| :------- | :-------- | :--------------------- |
+| `userId` | `integer` | **Required** → user Id |
 
 ####
 
-| Headers     | Type     | Description           |
-| :---------- | :------- | :-------------------- |
-| `Authentication` | `string` | **Required**. token |
+| Headers          | Type     | Description          |
+| :--------------- | :------- | :------------------- |
+| `Authentication` | `string` | **Required** → token |
 
 `Authorization format: Bearer jsonwebtoken`
 
 ####
 
-| Body   | Type       | Description             |
-| :----- | :--------- | :---------------------- |
-| `title`           | `string` | **Required**. note title       |
-| `content`         | `string` | **Required**. note content          |
+| Body      | Type     | Description                 |
+| :-------- | :------- | :-------------------------- |
+| `title`   | `string` | **Required** → note title   |
+| `content` | `string` | **Required** → note content |
 
 `title length min(50) and max(1000)`
 
@@ -290,7 +285,7 @@ POST /notes/${userId}/create
 
 ```json
 {
-	"message": "credential created"
+    "message": "credential created"
 }
 ```
 
@@ -304,15 +299,15 @@ GET /notes/${userId}
 
 #### Request:
 
-| Params      | Type      | Description           |
-| :---------- | :-------- | :-------------------- |
-| `userId` | `integer` | **Required**. user Id |
+| Params   | Type      | Description            |
+| :------- | :-------- | :--------------------- |
+| `userId` | `integer` | **Required** → user Id |
 
 ####
 
-| Headers     | Type     | Description           |
-| :---------- | :------- | :-------------------- |
-| `Authentication` | `string` | **Required**. token |
+| Headers          | Type     | Description          |
+| :--------------- | :------- | :------------------- |
+| `Authentication` | `string` | **Required** → token |
 
 `Authorization format: Bearer jsonwebtoken`
 
@@ -322,15 +317,15 @@ GET /notes/${userId}
 
 ```json
 {
-	"notes": [
-		{
-			"id": 1,
-			"title": "consequatur",
-			"content": "Ratione suscipit nihil quia dolore sunt minima omnis.",
-			"createdAt": "2022-07-18T13:02:20.263Z",
-			"userId": 2
-		}
-	]
+    "notes": [
+        {
+            "id": 1,
+            "title": "consequatur",
+            "content": "Ratione suscipit nihil quia dolore sunt minima omnis.",
+            "createdAt": "2022-07-18T13:02:20.263Z",
+            "userId": 2
+        }
+    ]
 }
 ```
 
@@ -344,16 +339,16 @@ GET /notes/${userId}/${noteId}
 
 #### Request:
 
-| Params      | Type      | Description           |
-| :---------- | :-------- | :-------------------- |
-| `userId` | `integer` | **Required**. user Id |
-| `noteId` | `integer` | **Required**. note Id |
+| Params   | Type      | Description            |
+| :------- | :-------- | :--------------------- |
+| `userId` | `integer` | **Required** → user Id |
+| `noteId` | `integer` | **Required** → note Id |
 
 ####
 
-| Headers     | Type     | Description           |
-| :---------- | :------- | :-------------------- |
-| `Authentication` | `string` | **Required**. token |
+| Headers          | Type     | Description          |
+| :--------------- | :------- | :------------------- |
+| `Authentication` | `string` | **Required** → token |
 
 `Authorization format: Bearer jsonwebtoken`
 
@@ -363,13 +358,13 @@ GET /notes/${userId}/${noteId}
 
 ```json
 {
-	"note": {
-		"id": 1,
-		"title": "consequatur",
-		"content": "Ratione suscipit nihil quia dolore sunt minima omnis.",
-		"createdAt": "2022-07-18T13:02:20.263Z",
-		"userId": 2
-	}
+    "note": {
+        "id": 1,
+        "title": "consequatur",
+        "content": "Ratione suscipit nihil quia dolore sunt minima omnis.",
+        "createdAt": "2022-07-18T13:02:20.263Z",
+        "userId": 2
+    }
 }
 ```
 
@@ -383,16 +378,16 @@ DELETE /notes/${userId}/${notesId}
 
 #### Request:
 
-| Params      | Type      | Description           |
-| :---------- | :-------- | :-------------------- |
-| `userId` | `integer` | **Required**. user Id |
-| `noteId` | `integer` | **Required**. note Id |
+| Params   | Type      | Description            |
+| :------- | :-------- | :--------------------- |
+| `userId` | `integer` | **Required** → user Id |
+| `noteId` | `integer` | **Required** → note Id |
 
 ####
 
-| Headers     | Type     | Description           |
-| :---------- | :------- | :-------------------- |
-| `Authentication` | `string` | **Required**. token |
+| Headers          | Type     | Description          |
+| :--------------- | :------- | :------------------- |
+| `Authentication` | `string` | **Required** → token |
 
 `Authorization format: Bearer jsonwebtoken`
 
@@ -402,13 +397,13 @@ DELETE /notes/${userId}/${notesId}
 
 ```json
 {
-	"message": "Note deleted"
+    "message": "Note deleted"
 }
 ```
 
 #
 
-### CARDS
+### 💳 Cards
 
 ### Create a card
 
@@ -418,30 +413,30 @@ POST /cards/${userId}/create
 
 #### Request:
 
-| Params      | Type      | Description           |
-| :---------- | :-------- | :-------------------- |
-| `userId` | `integer` | **Required**. user Id |
+| Params   | Type      | Description            |
+| :------- | :-------- | :--------------------- |
+| `userId` | `integer` | **Required** → user Id |
 
 ####
 
-| Headers     | Type     | Description           |
-| :---------- | :------- | :-------------------- |
-| `Authentication` | `string` | **Required**. token |
+| Headers          | Type     | Description          |
+| :--------------- | :------- | :------------------- |
+| `Authentication` | `string` | **Required** → token |
 
 `Authorization format: Bearer jsonwebtoken`
 
 ####
 
-| Body   | Type       | Description             |
-| :----- | :--------- | :---------------------- |
-| `title`           | `string` | **Required**. card title       |
-| `number`         | `string` | **Required**. card number          |
-| `cardholderName`           | `string` | **Required**. card holder name       |
-| `securityCode`         | `string` | **Required**. user card security code          |
-| `expirationDate`           | `string` | **Required**. card expiration date       |
-| `password`         | `string` | **Required**. card password          |
-| `isVirtual`           | `boolean` | **Required**. card is virtual       |
-| `type`         | `string` | **Required**. user type          |
+| Body             | Type      | Description                            |
+| :--------------- | :-------- | :------------------------------------- |
+| `title`          | `string`  | **Required** → card title              |
+| `number`         | `string`  | **Required** → card number             |
+| `cardholderName` | `string`  | **Required** → card holder name        |
+| `securityCode`   | `string`  | **Required** → user card security code |
+| `expirationDate` | `string`  | **Required** → card expiration date    |
+| `password`       | `string`  | **Required** → card password           |
+| `isVirtual`      | `boolean` | **Required** → card is virtual         |
+| `type`           | `string`  | **Required** → user type               |
 
 `Number Format: "1111 1111 1111 1111"`
 
@@ -457,7 +452,7 @@ POST /cards/${userId}/create
 
 ```json
 {
-	"message": "card created"
+    "message": "card created"
 }
 ```
 
@@ -471,15 +466,15 @@ GET /cards/${userId}
 
 #### Request:
 
-| Params      | Type      | Description           |
-| :---------- | :-------- | :-------------------- |
-| `userId` | `integer` | **Required**. user Id |
+| Params   | Type      | Description            |
+| :------- | :-------- | :--------------------- |
+| `userId` | `integer` | **Required** → user Id |
 
 ####
 
-| Headers     | Type     | Description           |
-| :---------- | :------- | :-------------------- |
-| `Authentication` | `string` | **Required**. token |
+| Headers          | Type     | Description          |
+| :--------------- | :------- | :------------------- |
+| `Authentication` | `string` | **Required** → token |
 
 `Authorization format: Bearer jsonwebtoken`
 
@@ -489,21 +484,21 @@ GET /cards/${userId}
 
 ```json
 {
-	"cards": [
-		{
-			"id": 2,
-			"title": "vel qui expedita",
-			"number": "1089 8176 0498 7127",
-			"cardholderName": "CARLA H SILVA",
-			"securityCode": "206",
-			"expirationDate": "07/27",
-			"password": "4964",
-			"isVirtual": false,
-			"type": "both",
-			"createdAt": "2022-07-18T13:03:16.959Z",
-			"userId": 1
-		}
-	]
+    "cards": [
+        {
+            "id": 2,
+            "title": "vel qui expedita",
+            "number": "1089 8176 0498 7127",
+            "cardholderName": "CARLA H SILVA",
+            "securityCode": "206",
+            "expirationDate": "07/27",
+            "password": "4964",
+            "isVirtual": false,
+            "type": "both",
+            "createdAt": "2022-07-18T13:03:16.959Z",
+            "userId": 1
+        }
+    ]
 }
 ```
 
@@ -517,16 +512,16 @@ GET /cards/${userId}/${cardId}
 
 #### Request:
 
-| Params      | Type      | Description           |
-| :---------- | :-------- | :-------------------- |
-| `userId` | `integer` | **Required**. user Id |
-| `cardId` | `integer` | **Required**. card Id |
+| Params   | Type      | Description            |
+| :------- | :-------- | :--------------------- |
+| `userId` | `integer` | **Required** → user Id |
+| `cardId` | `integer` | **Required** → card Id |
 
 ####
 
-| Headers     | Type     | Description           |
-| :---------- | :------- | :-------------------- |
-| `Authentication` | `string` | **Required**. token |
+| Headers          | Type     | Description          |
+| :--------------- | :------- | :------------------- |
+| `Authentication` | `string` | **Required** → token |
 
 `Authorization format: Bearer jsonwebtoken`
 
@@ -536,19 +531,19 @@ GET /cards/${userId}/${cardId}
 
 ```json
 {
-	"card": {
-		"id": 1,
-		"title": "sed doloribus qui",
-		"number": "3650 3177 0788 8589",
-		"cardholderName": "CARLA H SILVA",
-		"securityCode": "682",
-		"expirationDate": "07/27",
-		"password": "1265",
-		"isVirtual": false,
-		"type": "both",
-		"createdAt": "2022-07-18T13:03:01.120Z",
-		"userId": 1
-	}
+    "card": {
+        "id": 1,
+        "title": "sed doloribus qui",
+        "number": "3650 3177 0788 8589",
+        "cardholderName": "CARLA H SILVA",
+        "securityCode": "682",
+        "expirationDate": "07/27",
+        "password": "1265",
+        "isVirtual": false,
+        "type": "both",
+        "createdAt": "2022-07-18T13:03:01.120Z",
+        "userId": 1
+    }
 }
 ```
 
@@ -562,16 +557,16 @@ DELETE /cards/${userId}/${cardId}
 
 #### Request:
 
-| Params      | Type      | Description           |
-| :---------- | :-------- | :-------------------- |
-| `userId` | `integer` | **Required**. user Id |
-| `cardId` | `integer` | **Required**. card Id |
+| Params   | Type      | Description            |
+| :------- | :-------- | :--------------------- |
+| `userId` | `integer` | **Required** → user Id |
+| `cardId` | `integer` | **Required** → card Id |
 
 ####
 
-| Headers     | Type     | Description           |
-| :---------- | :------- | :-------------------- |
-| `Authentication` | `string` | **Required**. token |
+| Headers          | Type     | Description          |
+| :--------------- | :------- | :------------------- |
+| `Authentication` | `string` | **Required** → token |
 
 `Authorization format: Bearer jsonwebtoken`
 
@@ -581,13 +576,13 @@ DELETE /cards/${userId}/${cardId}
 
 ```json
 {
-  "message": "card deleted"
+    "message": "card deleted"
 }
 ```
 
 #
 
-### NETWORKS
+### 📶 Networks
 
 ### Create a network
 
@@ -597,31 +592,31 @@ POST /wifis/${userId}/create
 
 #### Request:
 
-| Params      | Type      | Description           |
-| :---------- | :-------- | :-------------------- |
-| `userId` | `integer` | **Required**. user Id |
+| Params   | Type      | Description            |
+| :------- | :-------- | :--------------------- |
+| `userId` | `integer` | **Required** → user Id |
 
 ####
 
-| Headers     | Type     | Description           |
-| :---------- | :------- | :-------------------- |
-| `Authentication` | `string` | **Required**. token |
+| Headers          | Type     | Description          |
+| :--------------- | :------- | :------------------- |
+| `Authentication` | `string` | **Required** → token |
 
 `Authorization format: Bearer jsonwebtoken`
 
 ####
 
-| Body   | Type       | Description             |
-| :----- | :--------- | :---------------------- |
-| `title`           | `string` | **Required**. wifi title       |
-| `name`         | `string` | **Required**. wifi name          |
-| `password`         | `string` | **Required**. wifi password          |
+| Body       | Type     | Description                  |
+| :--------- | :------- | :--------------------------- |
+| `title`    | `string` | **Required** → wifi title    |
+| `name`     | `string` | **Required** → wifi name     |
+| `password` | `string` | **Required** → wifi password |
 
 #### Response:
 
 ```json
 {
-  "message": "wifi created"
+    "message": "wifi created"
 }
 ```
 
@@ -635,15 +630,15 @@ GET /wifis/${userId}
 
 #### Request:
 
-| Params      | Type      | Description           |
-| :---------- | :-------- | :-------------------- |
-| `userId` | `integer` | **Required**. user Id |
+| Params   | Type      | Description            |
+| :------- | :-------- | :--------------------- |
+| `userId` | `integer` | **Required** → user Id |
 
 ####
 
-| Headers     | Type     | Description           |
-| :---------- | :------- | :-------------------- |
-| `Authentication` | `string` | **Required**. token |
+| Headers          | Type     | Description          |
+| :--------------- | :------- | :------------------- |
+| `Authentication` | `string` | **Required** → token |
 
 `Authorization format: Bearer jsonwebtoken`
 
@@ -653,16 +648,16 @@ GET /wifis/${userId}
 
 ```json
 {
-  	"wifis": [
-		{
-			"id": 1,
-			"title": "sit",
-			"name": "possimus",
-			"password": "xSxR7jefH4rZ3aB",
-			"createdAt": "2022-07-18T13:03:46.190Z",
-			"userId": 1
-		}
-	]
+    "wifis": [
+        {
+            "id": 1,
+            "title": "sit",
+            "name": "possimus",
+            "password": "xSxR7jefH4rZ3aB",
+            "createdAt": "2022-07-18T13:03:46.190Z",
+            "userId": 1
+        }
+    ]
 }
 ```
 
@@ -676,16 +671,16 @@ GET /wifis/${userId}/${wifiId}
 
 #### Request:
 
-| Params      | Type      | Description           |
-| :---------- | :-------- | :-------------------- |
-| `userId` | `integer` | **Required**. user Id |
-| `wifiId` | `integer` | **Required**. wifi Id |
+| Params   | Type      | Description            |
+| :------- | :-------- | :--------------------- |
+| `userId` | `integer` | **Required** → user Id |
+| `wifiId` | `integer` | **Required** → wifi Id |
 
 ####
 
-| Headers     | Type     | Description           |
-| :---------- | :------- | :-------------------- |
-| `Authentication` | `string` | **Required**. token |
+| Headers          | Type     | Description          |
+| :--------------- | :------- | :------------------- |
+| `Authentication` | `string` | **Required** → token |
 
 `Authorization format: Bearer jsonwebtoken`
 
@@ -695,14 +690,14 @@ GET /wifis/${userId}/${wifiId}
 
 ```json
 {
-	"wifi": {
-		"id": 1,
-		"title": "sit",
-		"name": "possimus",
-		"password": "xSxR7jefH4rZ3aB",
-		"createdAt": "2022-07-18T13:03:46.190Z",
-		"userId": 1
-	}
+    "wifi": {
+        "id": 1,
+        "title": "sit",
+        "name": "possimus",
+        "password": "xSxR7jefH4rZ3aB",
+        "createdAt": "2022-07-18T13:03:46.190Z",
+        "userId": 1
+    }
 }
 ```
 
@@ -716,16 +711,16 @@ DELETE /wifis/${userId}/${wifiId}
 
 #### Request:
 
-| Params      | Type      | Description           |
-| :---------- | :-------- | :-------------------- |
-| `userId` | `integer` | **Required**. user Id |
-| `wifiId` | `integer` | **Required**. wifi Id |
+| Params   | Type      | Description            |
+| :------- | :-------- | :--------------------- |
+| `userId` | `integer` | **Required** → user Id |
+| `wifiId` | `integer` | **Required** → wifi Id |
 
 ####
 
-| Headers     | Type     | Description           |
-| :---------- | :------- | :-------------------- |
-| `Authentication` | `string` | **Required**. token |
+| Headers          | Type     | Description          |
+| :--------------- | :------- | :------------------- |
+| `Authentication` | `string` | **Required** → token |
 
 `Authorization format: Bearer jsonwebtoken`
 
@@ -735,13 +730,11 @@ DELETE /wifis/${userId}/${wifiId}
 
 ```json
 {
-	"message": "Wifi deleted"
+    "message": "Wifi deleted"
 }
 ```
 
-#
-
-## Environment Variables
+## 🔑 Environment Variables
 
 To run this project, you will need to add the following environment variables to your .env file
 
@@ -753,51 +746,37 @@ To run this project, you will need to add the following environment variables to
 
 `CRYPTR_SECRET = any string`
 
-
-</br>
-
-## Run Locally
-
-Clone the project
+## ⚙️ How to run
 
 ```bash
-  git clone https://github.com/thalesgomest/drivenpass-API.git
+# Clone this repoository
+$ git clone https://github.com/thalesgomest/drivenpass-API.git
+
+# Change to project directory
+$ cd cd drivenpass-API
+
+# Install all dependencies
+$ npm install
+
+# Start the server
+$ npm run start
 ```
 
-Go to the project directory
-
-```bash
-  cd drivenpass-API/
-```
-
-Install dependencies
-
-```bash
-  npm install
-```# drivenpass-API
-
-Start the server
-
-```bash
-  npm run start
-```
-
-</br>
-
-## Lessons Learned
+## 📚 Lessons Learned
 
 In this project I learned a lot about how to structure an API with TypeScript and database with Prisma
 
-</br>
+## 🛠️ Build with
 
+  <img src="https://img.shields.io/badge/PostgreSQL-316192?style=plastic&logo=postgresql&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Prisma-3982CE?style=plastic&logo=Prisma&logoColor=white"/>
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=plastic&logo=typescript&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Node.js-43853D?style=plastic&logo=node.js&logoColor=white"/>  
+  <img src="https://img.shields.io/badge/Express.js-404D59?style=plastic&logo=express.js&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Heroku-430098?style=plastic&logo=heroku&logoColor=white"/>
+  <!-- Badges source: https://dev.to/envoy_/150-badges-for-github-pnk -->
 
-### Author
----
-<div align="center">
-<img width= 200px src="https://user-images.githubusercontent.com/97575616/157583676-812b2612-a644-4c18-be9c-61f633406f50.png" alt=""/>
-  <p> <i><b>Thales Gomes Targino</i></b> </p>
+## 📫 Contact
 
-<br /> [![Twitter Badge](https://img.shields.io/badge/-@thales_targino-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/thales_targino)](https://twitter.com/thales_targino) [![Linkedin Badge](https://img.shields.io/badge/-thalesgomest-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/thales-gomes-targino/)](https://www.linkedin.com/in/thales-gomes-targino/) 
-[![Gmail Badge](https://img.shields.io/badge/-thalestargino@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:thalestargino@gmail.com)](mailto:thalestargino@gmail.com)
-  
-</div>
+<a href = "mailto:thalestargino@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=plastic&logo=gmail&logoColor=white" target="_blank"></a>
+<a href="https://www.linkedin.com/in/thalesgomest/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=plastic&logo=linkedin&logoColor=white" target="_blank"></a>
