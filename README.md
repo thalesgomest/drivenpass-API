@@ -768,13 +768,14 @@ In this project I learned a lot about how to structure an API with TypeScript an
 
 ## 🛠️ Build with
 
-  <img src="https://img.shields.io/badge/PostgreSQL-316192?style=plastic&logo=postgresql&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Prisma-3982CE?style=plastic&logo=Prisma&logoColor=white"/>
-  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=plastic&logo=typescript&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Node.js-43853D?style=plastic&logo=node.js&logoColor=white"/>  
-  <img src="https://img.shields.io/badge/Express.js-404D59?style=plastic&logo=express.js&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Heroku-430098?style=plastic&logo=heroku&logoColor=white"/>
-  <!-- Badges source: https://dev.to/envoy_/150-badges-for-github-pnk -->
+![uses-postgresql](https://img.shields.io/badge/PostgreSQL-316192?style=plastic&logo=postgresql&logoColor=white)
+![uses-prisma](https://img.shields.io/badge/Prisma-3982CE?style=plastic&logo=Prisma&logoColor=white)
+![uses-typescript](https://img.shields.io/badge/TypeScript-007ACC?style=plastic&logo=typescript&logoColor=white)
+![uses-node](https://img.shields.io/badge/Node.js-43853D?style=plastic&logo=node.js&logoColor=white)
+![uses-express](https://img.shields.io/badge/Express.js-404D59?style=plastic&logo=express.js&logoColor=white)
+![built-with-heroku](https://img.shields.io/badge/Heroku-430098?style=plastic&logo=heroku&logoColor=white)
+![built-with-vsc](https://img.shields.io/badge/Visual%20Studio%20Code-blue?style=plastic&logo=visualstudiocode)
+
 
 ## 📫 Contact
 
